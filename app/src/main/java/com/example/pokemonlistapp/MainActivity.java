@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
-        toolbarTittle.setText("Pokemom");
+        toolbarTittle.setText("Pokemon List APP");
 
     }
 
