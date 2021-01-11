@@ -62,4 +62,10 @@ public class AddEditTaskActivity extends AppCompatActivity {
         CustomDialogUtil.showDatePickerDialog(this);
     }
 
+    @OnClick(R.id.et_time) void clickTimePicker(){
+        CustomDialogUtil.showTimePickerDialog(this);
+    }
+
+
+
 }
