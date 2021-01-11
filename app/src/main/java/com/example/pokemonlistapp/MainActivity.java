@@ -2,6 +2,7 @@ package com.example.pokemonlistapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,4 +40,10 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.home_menu, menu);
         return true;
     }
+
+    @OnClick(R.id.btn_add_task) void clickAddTask(){
+        startActivity(new Intent(this,AddEditTaskActivity.class));
+    }
+
+
 }
