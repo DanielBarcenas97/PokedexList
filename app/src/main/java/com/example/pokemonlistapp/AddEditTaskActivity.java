@@ -42,15 +42,21 @@ public class AddEditTaskActivity extends AppCompatActivity implements ActionCall
 
     private AppDatabase db;
 
+    private TaskItem parmItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_task);
         ButterKnife.bind(this);
         db = AppDatabase.getDatabase(this);
+
+        parmItem = (TaskItem) getIntent().getSerializableExtra("item");
+
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
-        toolbarTittle.setText("Add new Task");
+        toolbarTittle.setText(parmItem != null ? "Edit": "Add New"  + "Task");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +64,12 @@ public class AddEditTaskActivity extends AppCompatActivity implements ActionCall
                 finish();
             }
         });
+
+        if(parmItem != null){
+               etTittle.setText(parmItem.tittle);
+               etTime.setText(parmItem.time);
+               etDate.setText(parmItem.date);
+        }
 
 
     }
@@ -67,12 +79,19 @@ public class AddEditTaskActivity extends AppCompatActivity implements ActionCall
         etDate.getText().toString().length() <=0){
             Toast.makeText(this, "Please fill required fields",Toast.LENGTH_LONG).show();
         }else{
-            TaskItem taskItem = new TaskItem();
-            taskItem.tittle = etTittle.getText().toString();
-            taskItem.date = etDate.getText().toString();
-            taskItem.time = etTime.getText().toString();
 
-            new AddTask(taskItem).execute();
+            if(parmItem != null){
+                 parmItem.tittle = etTittle.getText().toString();
+                 parmItem.date = etDate.getText().toString();
+                 parmItem.time = etTime.getText().toString();
+                new AddTask(parmItem).execute();
+            }else{
+                TaskItem taskItem = new TaskItem();
+                taskItem.tittle = etTittle.getText().toString();
+                taskItem.date =   etDate.getText().toString();
+                taskItem.time =   etTime.getText().toString();
+                new AddTask(taskItem).execute();
+            }
 
         }
     }
@@ -105,9 +124,6 @@ public class AddEditTaskActivity extends AppCompatActivity implements ActionCall
             this.taskItem = taskItem;
         }
 
-
-
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -115,7 +131,12 @@ public class AddEditTaskActivity extends AppCompatActivity implements ActionCall
 
         @Override
         protected Void doInBackground(Void... voids) {
-            db.taskDAO().insertTask(taskItem);
+            if(parmItem != null){
+                db.taskDAO().updateTask(taskItem);
+            }else{
+                db.taskDAO().insertTask(taskItem);
+            }
+
             return null;
         }
 
@@ -127,5 +148,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements ActionCall
             etTittle.setText("");
         }
     }
+
+
 
 }

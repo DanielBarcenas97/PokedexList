@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokemonlistapp.R;
+import com.example.pokemonlistapp.callback.ActionCallback;
 import com.example.pokemonlistapp.database.TaskItem;
 
 import java.util.List;
@@ -22,13 +23,12 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
     Context context;
     List<TaskItem> data;
+    ActionCallback.TaskItemClick callback;
 
-
-
-
-    public TaskListAdapter(Context context, List<TaskItem> data) {
+    public TaskListAdapter(Context context, List<TaskItem> data, ActionCallback.TaskItemClick callback) {
         this.context = context;
         this.data = data;
+        this.callback = callback;
     }
 
     @NonNull
@@ -39,14 +39,12 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
     @Override
     public void onBindViewHolder(@NonNull TaskListViewHolder holder, int position) {
-
         holder.taskName.setText(data.get(position).tittle);
         holder.time.setText(data.get(position).time);
-
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                callback.clickItem(data.get(position), view);
             }
         });
     }

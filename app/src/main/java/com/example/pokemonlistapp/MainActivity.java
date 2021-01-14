@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
+import android.widget.Switch;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements ActionCallback.DatePickerCallBack {
+public class MainActivity extends AppCompatActivity implements ActionCallback.DatePickerCallBack, ActionCallback.TaskItemClick {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         allTask.clear();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new TaskListAdapter(this, allTask);
+        adapter = new TaskListAdapter(this, allTask,this);
         recyclerView.setAdapter(adapter);
 
         Log.e(TAG,"Current Date:" + DataConfig.getCurrentDate(this));
@@ -107,12 +109,35 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
     @Override
     public void selectedDate(String dateString) {
         if(dateString.equalsIgnoreCase(DataConfig.getCurrentDate(this))){
-            todayTittle.setText("Today");
+            todayTittle.setText("Hoy");
         }else{
             todayTittle.setText(DataConfig.formatDate(this,dateString));
         }
         chooseDate = dateString;
         new FetchTask(dateString).execute();
+    }
+
+    @Override
+    public void clickItem(TaskItem taskItem, View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+        popupMenu.show();
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.menu_edit:
+                        startActivity(new Intent(MainActivity.this , AddEditTaskActivity.class).
+                                putExtra("item",taskItem));
+                        break;
+
+                        case R.id.menu_delete:
+                            new DeleteTask(taskItem).execute();
+                            break;
+                }
+                return true;
+            }
+        });
     }
 
     class FetchTask extends AsyncTask<Void,Void, Void>{
@@ -127,7 +152,6 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         @Override
         protected Void doInBackground(Void... voids) {
             allTask.addAll(Arrays.asList(db.taskDAO().getTaskByDate(dateString)));
-
             return null;
         }
 
@@ -139,13 +163,35 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
             taskCount.setText(allTask.size() + " tasks");
 
             if(allTask.size() > 0){
-
                 noResult.setVisibility(View.GONE);
             }else{
                 noResult.setVisibility(View.VISIBLE);
                 allTask.clear();
             }
             adapter.notifyDataSetChanged();
+        }
+    }
+
+    class DeleteTask extends AsyncTask<Void, Void, Void>{
+
+        TaskItem taskItem;
+
+
+        public DeleteTask(TaskItem taskItem) {
+            this.taskItem = taskItem;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            db.taskDAO().deleteTask(taskItem);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            allTask.clear();
+            new FetchTask(chooseDate).execute();
         }
     }
 
