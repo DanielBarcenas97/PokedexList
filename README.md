@@ -13,3 +13,13 @@ We can also know how many Pokémon we have captured and we can also filter the l
 -Menu, Toast, Spinner, Date Calendar
 
 
+# Pokedex APP Images
+<img src="https://github.com/DanielBarcenas97/PokedexList/blob/master/app/src/main/res/drawable/inicio.jpeg" height="800" width="400">
+
+<img src="https://github.com/DanielBarcenas97/PokedexList/blob/master/app/src/main/res/drawable/add.jpeg" height="800" width="400">
+
+<img src="https://github.com/DanielBarcenas97/PokedexList/blob/master/app/src/main/res/drawable/icon.jpeg" height="800" width="400">
+
+
+
+
