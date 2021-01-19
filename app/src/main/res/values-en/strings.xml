@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PokemonListApp</string>
+    <string name="app_name">Pokedex</string>
     <string name="et_name_pokemon">Name Pokemon</string>
     <string name="et_skill">Skill</string>
     <string name="et_date">Date of capture</string>
@@ -24,7 +24,7 @@
     <string name="cancel">Cancel</string>
     <string name="item">item</string>
     <string name="please">Please fill required fields</string>
-    <string name="list_pokemon">Pokemon List</string>
+    <string name="list_pokemon">Pokedex</string>
     <string name="today">Today </string>
     <string name="today_act">Today </string>
     <string name="capters"> Pokemon</string>

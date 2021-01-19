@@ -63,33 +63,42 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
         switch (data.get(position).type){
             case "acero":
+            case "steel":
                 holder.imageType.setImageResource(R.drawable.acero);
                 break;
             case "agua":
+            case "water":
                 holder.imageType.setImageResource(R.drawable.agua);
                 break;
             case "dragon":
                 holder.imageType.setImageResource(R.drawable.dragon);
                 break;
             case "bicho":
+            case "bug":
                 holder.imageType.setImageResource(R.drawable.bicho);
                 break;
             case "fuego":
+            case "fire":
                 holder.imageType.setImageResource(R.drawable.fuego);
                 break;
             case "fantasma":
+            case "ghost":
                 holder.imageType.setImageResource(R.drawable.fantasma);
                 break;
             case "electrico":
+            case "electric":
                 holder.imageType.setImageResource(R.drawable.electrico);
                 break;
             case "psiquico":
+            case "psychic":
                 holder.imageType.setImageResource(R.drawable.psiquico);
                 break;
             case "planta":
+            case "plant":
                 holder.imageType.setImageResource(R.drawable.planta);
                 break;
             case "roca":
+            case "rock":
                 holder.imageType.setImageResource(R.drawable.roca);
                 break;
         }
