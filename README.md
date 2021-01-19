@@ -10,6 +10,6 @@ We can also know how many Pokémon we have captured and we can also filter the l
 
 -Language support
 
--Menus, Toast, Spinner, Date Calendar
+-Menu, Toast, Spinner, Date Calendar
 
 
