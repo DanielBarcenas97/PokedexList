@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,14 +40,23 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
     @Override
     public void onBindViewHolder(@NonNull TaskListViewHolder holder, int position) {
-        holder.taskName.setText(data.get(position).tittle);
-        holder.time.setText(data.get(position).time);
+        holder.taskName.setText(data.get(position).name);
+        holder.time.setText(String.format("Skill: %s", data.get(position).time));
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callback.clickItem(data.get(position), view);
             }
         });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "ID: " + data.get(position).tid,Toast.LENGTH_LONG).show();
+            }
+        });
+
+        holder.taskType.setText(String.format("Tipo: %s", data.get(position).type));
     }
 
     @Override
@@ -61,6 +71,9 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
         @BindView(R.id.time)
         TextView time;
+
+        @BindView(R.id.task_type)
+        TextView taskType;
 
         @BindView(R.id.iv_more)
         ImageView more;

@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_title"
                 android:textSize="13sp"
-                android:hint="Enter Task"
+                android:hint="Nombre Pokemon"
                 android:textColor="@color/primary_color">
             </EditText>
 
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_time"
                 android:textSize="13sp"
-                android:hint="Choose Time"
+                android:hint="Habilidad Especial"
                 android:textColor="@color/primary_color">
             </EditText>
 
@@ -56,11 +56,29 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/et_date"
                 android:textSize="13sp"
-                android:hint="Choose Date"
+                android:hint="Fecha de Captura"
                 android:textColor="@color/primary_color">
             </EditText>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            android:text="Selecciona tipo de pokemon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/s_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp" />
 
         <Button
             android:id="@+id/btn_save"

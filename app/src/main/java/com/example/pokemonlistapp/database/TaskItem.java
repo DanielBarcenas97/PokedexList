@@ -13,14 +13,20 @@ public class TaskItem  implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int tid;
 
-    @ColumnInfo(name = "tittle")
-    public String tittle;
+    @ColumnInfo(name = "name")
+    public String name;
 
     @ColumnInfo(name = "time")
     public String time;
 
     @ColumnInfo(name = "date")
     public String date;
+
+    @ColumnInfo(name = "type")
+    public String type;
+
+    @ColumnInfo(name = "skill")
+    public String skill;
 
 
 }

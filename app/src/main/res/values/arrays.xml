@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="itemsList">
+        <item>Fuego</item>
+        <item>Tierra</item>
+        <item>Agua</item>
+        <item>Aire</item>
+        <item>Electricidad</item>
+    </string-array>
+</resources>

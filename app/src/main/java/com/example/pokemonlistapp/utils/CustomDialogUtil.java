@@ -35,7 +35,7 @@ public class CustomDialogUtil {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 Log.e(TAG, "year" + i );
-                selectedDate = i + "-" + (i1+1) + "-" +i2;
+                selectedDate = i2 + "-" + (i1+1) + "-" +i;
             }
         });
 

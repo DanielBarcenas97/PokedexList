@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
-        toolbarTittle.setText("Pokemon List APP");
+        toolbarTittle.setText("Pokemon List");
 
         db = AppDatabase.getDatabase(this);
         chooseDate = DataConfig.getCurrentDate(this);
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TaskListAdapter(this, allTask,this);
         recyclerView.setAdapter(adapter);
-
+        todayTittle.setText("Hoy " + chooseDate);
         Log.e(TAG,"Current Date:" + DataConfig.getCurrentDate(this));
         //new FetchTask(DataConfig.getCurrentDate(this)).execute();
     }
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            taskCount.setText(allTask.size() + " tasks");
+            taskCount.setText(allTask.size() + " Capturas");
 
             if(allTask.size() > 0){
                 noResult.setVisibility(View.GONE);
