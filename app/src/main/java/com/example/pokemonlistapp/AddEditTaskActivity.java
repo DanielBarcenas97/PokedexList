@@ -62,7 +62,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements
         ButterKnife.bind(this);
         db = AppDatabase.getDatabase(this);
 
-        parmItem = (TaskItem) getIntent().getSerializableExtra("item");
+        parmItem = (TaskItem) getIntent().getSerializableExtra(getString(R.string.item));
 
         typesPoke = getResources().getStringArray(R.array.itemsList);
         setSupportActionBar(toolbar);
@@ -96,7 +96,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements
     @OnClick(R.id.btn_save) void clickSave(){
         if(etTime.getText().toString().length() <=0 || etTittle.getText().toString().length()<=0 ||
         etDate.getText().toString().length() <=0){
-            Toast.makeText(this, "Please fill required fields",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.please,Toast.LENGTH_LONG).show();
         }else{
 
             if(parmItem != null){

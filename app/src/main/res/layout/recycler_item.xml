@@ -7,66 +7,64 @@
     app:cardBackgroundColor="#E4E0E0"
     android:layout_margin="10dp">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_type"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/acero" />
+
+        <RelativeLayout
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name Pokemon"
-            android:textSize="16sp"
-            android:id="@+id/task_name"
-            android:textStyle="bold"
-            android:textColor="@color/primary_color" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Skill"
-            android:textSize="13sp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/task_name"
-            android:id="@+id/task_type"
-            android:textColor="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_name_pokemon"
+                android:textSize="16sp"
+                android:id="@+id/task_name"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_skill"
+                android:textSize="14sp"
+                android:layout_below="@+id/task_name"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:id="@+id/task_type"
+                android:textColor="@color/black" />
 
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_below="@+id/task_type"
-               android:layout_marginTop="10dp"
-               android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time"
+                android:layout_below="@+id/task_type"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:text="@string/tv_type_poke" />
 
-               <ImageView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:src="@drawable/ic_clock" />
+            <ImageView
+                android:id="@+id/iv_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_dots" />
 
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/time"
-                   android:layout_marginStart="10dp"
-                   android:text="Type">
+        </RelativeLayout>
 
-               </TextView>
-
-           </LinearLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_dots"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:id="@+id/iv_more">
-
-        </ImageView>
-
-
-    </RelativeLayout>
-
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

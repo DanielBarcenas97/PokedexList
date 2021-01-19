@@ -26,10 +26,9 @@
                     android:id="@+id/today_tittle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Today xd"
+                    android:text="@string/tv_today"
                     android:textStyle="bold"
                     android:textSize="25sp"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="35dp"
                     android:textColor="@color/white"
                     android:layout_marginStart="20dp" />
@@ -37,10 +36,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10 task"
+                    android:text="@string/tv_task"
                     android:textColor="@color/white"
                     android:layout_below="@+id/today_tittle"
-                    android:layout_marginLeft="20dp"
                     android:id="@+id/task_count"
                     android:layout_marginStart="20dp" />
 
@@ -48,14 +46,12 @@
                     android:id="@+id/btn_add_task"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
-                    android:text="New Pokemon"
+                    android:text="@string/btn_new_pokemon"
                     android:elevation="2sp"
                     android:textColor="@color/white"
                     android:background="@drawable/rounded_button"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
                     android:textStyle="bold"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/btn_new_pokemon"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="20dp"
                     android:layout_alignParentEnd="true">
@@ -81,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:text="No Results"
+                    android:text="@string/tv_without_pokemons"
                     android:layout_centerInParent="true"
                     android:textSize="20sp"
                     android:id="@+id/tv_noresult" />

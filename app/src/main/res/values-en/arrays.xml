@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="itemsList">
+        <item>steel</item>
+        <item>water</item>
+        <item>dragon</item>
+        <item>bug</item>
+        <item>fire</item>
+        <item>ghost</item>
+        <item>electric</item>
+        <item>psychic</item>
+        <item>plant</item>
+        <item>rock</item>
+    </string-array>
+</resources>

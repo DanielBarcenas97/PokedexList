@@ -39,7 +39,7 @@ public class CustomDialogUtil {
             }
         });
 
-        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog1, int i) {
                 dialog1.dismiss();
@@ -47,7 +47,7 @@ public class CustomDialogUtil {
             }
         });
 
-        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog1, int i) {
                 dialog1.dismiss();
@@ -71,7 +71,7 @@ public class CustomDialogUtil {
             }
         });
 
-        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -79,7 +79,7 @@ public class CustomDialogUtil {
             }
         });
 
-        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

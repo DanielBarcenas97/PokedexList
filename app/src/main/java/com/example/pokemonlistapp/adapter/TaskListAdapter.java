@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokemonlistapp.R;
@@ -40,8 +41,9 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
     @Override
     public void onBindViewHolder(@NonNull TaskListViewHolder holder, int position) {
+
         holder.taskName.setText(data.get(position).name);
-        holder.time.setText(String.format("Skill: %s", data.get(position).time));
+        holder.time.setText(String.format(context.getString(R.string.skill), data.get(position).time));
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,11 +54,46 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "ID: " + data.get(position).tid,Toast.LENGTH_LONG).show();
+                Toast.makeText(context, context.getString(R.string.toast_id) + data.get(position).tid,Toast.LENGTH_LONG).show();
             }
         });
 
-        holder.taskType.setText(String.format("Tipo: %s", data.get(position).type));
+        holder.taskType.setText(String.format(context.getString(R.string.type), data.get(position).type));
+
+
+        switch (data.get(position).type){
+            case "acero":
+                holder.imageType.setImageResource(R.drawable.acero);
+                break;
+            case "agua":
+                holder.imageType.setImageResource(R.drawable.agua);
+                break;
+            case "dragon":
+                holder.imageType.setImageResource(R.drawable.dragon);
+                break;
+            case "bicho":
+                holder.imageType.setImageResource(R.drawable.bicho);
+                break;
+            case "fuego":
+                holder.imageType.setImageResource(R.drawable.fuego);
+                break;
+            case "fantasma":
+                holder.imageType.setImageResource(R.drawable.fantasma);
+                break;
+            case "electrico":
+                holder.imageType.setImageResource(R.drawable.electrico);
+                break;
+            case "psiquico":
+                holder.imageType.setImageResource(R.drawable.psiquico);
+                break;
+            case "planta":
+                holder.imageType.setImageResource(R.drawable.planta);
+                break;
+            case "roca":
+                holder.imageType.setImageResource(R.drawable.roca);
+                break;
+        }
+
     }
 
     @Override
@@ -77,6 +114,9 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskLi
 
         @BindView(R.id.iv_more)
         ImageView more;
+
+        @BindView(R.id.image_type)
+        ImageView imageType;
 
 
         public TaskListViewHolder(@NonNull View itemView) {

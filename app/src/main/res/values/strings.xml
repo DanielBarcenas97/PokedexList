@@ -1,3 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PokemonListApp</string>
+    <string name="et_name_pokemon">Nombre Pokemon</string>
+    <string name="et_skill">Habilidad Especial</string>
+    <string name="et_date">Fecha de Captura</string>
+    <string name="tv_type">Selecciona tipo de pokemon</string>
+    <string name="btn_button">Guardar</string>
+    <string name="tv_today">Hoy</string>
+    <string name="tv_task">10 task</string>
+    <string name="btn_new_pokemon">Nuevo Pokemon</string>
+    <string name="tv_without_pokemons">Sin Capturas</string>
+    <string name="tv_name_pokemon">Name Pokemon</string>
+    <string name="tv_skill">Skill</string>
+    <string name="tv_type_poke">Type</string>
+    <string name="tv_toolbar">Toolbar Title</string>
+    <string name="item_calendar">Calendar</string>
+    <string name="item_edit">Edit</string>
+    <string name="item_delete">Delete</string>
+    <string name="toast_id">El elemento seleccionado tiene el ID: </string>
+    <string name="skill">Skill: %s</string>
+    <string name="type">Tipo: %s</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="item">item</string>
+    <string name="please">Completa todos los campos</string>
+    <string name="list_pokemon">Pokemon Lista</string>
+    <string name="today">Hoy </string>
+    <string name="today_act">Hoy </string>
+    <string name="capters"> Pokemon</string>
 </resources>

@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
-        toolbarTittle.setText("Pokemon List");
+        toolbarTittle.setText(R.string.list_pokemon);
 
         db = AppDatabase.getDatabase(this);
         chooseDate = DataConfig.getCurrentDate(this);
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TaskListAdapter(this, allTask,this);
         recyclerView.setAdapter(adapter);
-        todayTittle.setText("Hoy " + chooseDate);
+        todayTittle.setText(String.format("%s %s", getString(R.string.today), chooseDate));
         Log.e(TAG,"Current Date:" + DataConfig.getCurrentDate(this));
         //new FetchTask(DataConfig.getCurrentDate(this)).execute();
     }
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
     @Override
     public void selectedDate(String dateString) {
         if(dateString.equalsIgnoreCase(DataConfig.getCurrentDate(this))){
-            todayTittle.setText("Hoy");
+            todayTittle.setText(R.string.today_act);
         }else{
             todayTittle.setText(DataConfig.formatDate(this,dateString));
         }
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements ActionCallback.Da
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            taskCount.setText(allTask.size() + " Capturas");
+            taskCount.setText(allTask.size() +" " + getString(R.string.capters));
 
             if(allTask.size() > 0){
                 noResult.setVisibility(View.GONE);

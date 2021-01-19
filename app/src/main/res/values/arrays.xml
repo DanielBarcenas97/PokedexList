@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="itemsList">
-        <item>Fuego</item>
-        <item>Tierra</item>
-        <item>Agua</item>
-        <item>Aire</item>
-        <item>Electricidad</item>
+        <item>acero</item>
+        <item>agua</item>
+        <item>dragon</item>
+        <item>bicho</item>
+        <item>fuego</item>
+        <item>fantasma</item>
+        <item>electrico</item>
+        <item>psiquico</item>
+        <item>planta</item>
+        <item>roca</item>
     </string-array>
 </resources>
+

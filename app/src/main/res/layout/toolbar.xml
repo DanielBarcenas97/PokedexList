@@ -17,7 +17,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="Toolbar Title"
+        android:text="@string/tv_toolbar"
         android:lineSpacingExtra="3dp"
         android:id="@+id/toolbar_tittle" />
 
